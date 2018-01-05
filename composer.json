@@ -1,21 +1,33 @@
 {
     "name": "mtcs-io/mtcs",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "make the complicated simple",
+    "keywords": ["framework", "laravel", "cms"],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "appstract/laravel-blade-directives": "^0.4.4",
+        "arcanedev/log-viewer": "^4.4",
+        "arcanedev/no-captcha": "^5.0",
+        "creativeorange/gravatar": "~1.0",
+        "davejamesmiller/laravel-breadcrumbs": "^4.1",
+        "doctrine/dbal": "^2.6",
         "fideloper/proxy": "~3.3",
+        "hieu-le/active": "^3.5",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/socialite": "^3.0",
+        "laravel/tinker": "~1.0",
+        "spatie/laravel-html": "^2.4",
+        "spatie/laravel-permission": "^2.5",
+        "webpatser/laravel-uuid": "^3.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.0",
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
+        "laravel/browser-kit-testing": "^2.0",
         "mockery/mockery": "~1.0",
-        "phpunit/phpunit": "~6.0",
-        "symfony/thanks": "^1.0"
+        "phpunit/phpunit": "~6.0"
     },
     "autoload": {
         "classmap": [
@@ -24,7 +36,10 @@
         ],
         "psr-4": {
             "App\\": "app/"
-        }
+        },
+        "files": [
+            "app/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -47,6 +62,18 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
+        ],
+        "clear-all": [
+            "composer dumpautoload -o",
+            "@php artisan optimize",
+            "@php artisan clear-compiled",
+            "@php artisan cache:clear",
+            "@php artisan route:clear",
+            "@php artisan view:clear",
+            "@php artisan config:clear"
+        ],
+        "phpunit": [
+            "phpunit > output.txt -d memory_limit=2048M"
         ]
     },
     "config": {

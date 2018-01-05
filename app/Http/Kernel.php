@@ -4,6 +4,9 @@ namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
+/**
+ * Class Kernel.
+ */
 class Kernel extends HttpKernel
 {
     /**
@@ -35,11 +38,18 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\LocaleMiddleware::class,
         ],
 
         'api' => [
             'throttle:60,1',
             'bindings',
+        ],
+
+        'admin' => [
+            'auth',
+            'password_expires',
+            'permission:view backend',
         ],
     ];
 
@@ -51,11 +61,14 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth'       => \Illuminate\Auth\Middleware\Authenticate::class,
+        'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'bindings'   => \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        'can'        => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest'      => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        'can' => \Illuminate\Auth\Middleware\Authorize::class,
+        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'password_expires' => \App\Http\Middleware\PasswordExpires::class,
+        'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
 }

@@ -3,7 +3,6 @@
 namespace Tests;
 
 use Illuminate\Contracts\Console\Kernel;
-use Illuminate\Support\Facades\Hash;
 
 trait CreatesApplication
 {
@@ -16,9 +15,11 @@ trait CreatesApplication
     {
         $app = require __DIR__.'/../bootstrap/app.php';
 
-        $app->make(Kernel::class)->bootstrap();
+        if (file_exists(dirname(__DIR__).'/.env.testing')) {
+            ( new \Dotenv\Dotenv(dirname(__DIR__), '.env.testing') )->load();
+        }
 
-        Hash::setRounds(4);
+        $app->make(Kernel::class)->bootstrap();
 
         return $app;
     }

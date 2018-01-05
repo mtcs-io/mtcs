@@ -11,6 +11,7 @@ We want MTCS to be a simple CMS for small websites or blogs.
 
 ### What's the base?
 MTCS is built on top of some of the most modern technologies in the web:
+to kickstart things, its based on Laravel Boilerplate
 * Laravel
 * Webpack
 * Vue.js
