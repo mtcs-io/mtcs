@@ -2,9 +2,12 @@
 
 @section('title', app_name() . ' | Login')
 
+@section('nav')
+@endsection
+
 @section('content')
-    <div class="row justify-content-center align-items-center">
-        <div class="col col-sm-8 align-self-center">
+    <div class="row" style="height: 100vh">
+        <div class="col col-sm-6 m-auto">
             <div class="card">
                 <div class="card-header">
                     <strong>
