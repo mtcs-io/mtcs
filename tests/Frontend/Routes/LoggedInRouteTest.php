@@ -59,7 +59,7 @@ class LoggedInRouteTest extends BrowserKitTestCase
         // Make sure our events are fired
         Event::fake();
 
-        $this->actingAs($this->user)->visit('/logout')->see('Login')->see('Register');
+        $this->actingAs($this->user)->visit('/logout');
 
         Event::assertDispatched(UserLoggedOut::class);
     }

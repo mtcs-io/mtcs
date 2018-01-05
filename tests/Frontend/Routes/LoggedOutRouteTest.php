@@ -82,7 +82,7 @@ class LoggedOutRouteTest extends BrowserKitTestCase
     {
         if (config('locale.status')) {
             $this->visit('lang/de')
-                ->see('Registrieren')
+                ->see('Sprache')
                 ->assertSessionHas('locale', 'de');
 
             App::setLocale('en');

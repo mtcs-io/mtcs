@@ -29,6 +29,7 @@ class SendContactRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required',
+            'phone' => 'nullable',
             'message' => 'required',
         ];
     }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Auth\User;
+use App\Models\ContactMessage;
 use Tests\BrowserKitTestCase;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -100,7 +101,6 @@ class LoggedOutFormTest extends BrowserKitTestCase
             ->type($password, 'password_confirmation')
             ->press('Register')
             ->see('Your account was successfully created. We have sent you an e-mail to confirm your account.')
-            ->see('Login')
             ->seePageIs('/')
             ->seeInDatabase(config('access.table_names.users'),
                 [
@@ -328,6 +328,8 @@ class LoggedOutFormTest extends BrowserKitTestCase
             ->press(trans('labels.frontend.contact.button'))
             ->seePageIs('/contact')
             ->see(trans('alerts.frontend.contact.sent'));
+
+        $this->assertEquals(1,ContactMessage::count());
 
         Mail::assertSent(SendContact::class);
     }
