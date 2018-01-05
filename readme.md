@@ -1,6 +1,9 @@
 # MTCS
-make the complicated simple  
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mtcs-io/mtcs/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mtcs-io/mtcs/?branch=master)
 [![CircleCI](https://circleci.com/gh/mtcs-io/mtcs.svg?style=svg)](https://circleci.com/gh/mtcs-io/mtcs)
+[![Build Status](https://scrutinizer-ci.com/g/mtcs-io/mtcs/badges/build.png?b=master)](https://scrutinizer-ci.com/g/mtcs-io/mtcs/build-status/master)
+  
+make the complicated simple  
 
 ## What the fuck?
 We want MTCS to be a simple CMS for small websites or blogs.
