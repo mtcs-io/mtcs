@@ -1,5 +1,6 @@
 # MTCS
 make the complicated simple
+[![CircleCI](https://circleci.com/gh/mtcs-io/mtcs.svg?style=svg)](https://circleci.com/gh/mtcs-io/mtcs)
 
 ## What the fuck?
 We want MTCS to be a simple CMS for small websites or blogs.
