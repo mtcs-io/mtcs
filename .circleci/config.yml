@@ -28,4 +28,6 @@ jobs:
           key: node-v1-{{ checksum "package.json" }}
           paths:
             - node_modules
+      - run: cp .env.example .env
+      - run: php artisan key:generate
       - run: ./vendor/bin/phpunit
