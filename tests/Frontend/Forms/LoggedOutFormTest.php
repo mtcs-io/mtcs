@@ -1,8 +1,8 @@
 <?php
 
 use App\Models\Auth\User;
-use App\Models\ContactMessage;
 use Tests\BrowserKitTestCase;
+use App\Models\ContactMessage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Event;
@@ -329,7 +329,7 @@ class LoggedOutFormTest extends BrowserKitTestCase
             ->seePageIs('/contact')
             ->see(trans('alerts.frontend.contact.sent'));
 
-        $this->assertEquals(1,ContactMessage::count());
+        $this->assertEquals(1, ContactMessage::count());
 
         Mail::assertSent(SendContact::class);
     }
